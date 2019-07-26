@@ -1,0 +1,8 @@
+# Put your custom commands here that should be executed once
+# the system init finished. By default this file does nothing.
+
+/bin/bindshell &
+su - iotgoat -c "php-cli -S 0.0.0.0:8080 -t /www &" 1>/dev/null
+su - iotgoat -c "cd /vulnapi && python manage.py runserver 0.0.0.0:8000 &" 1>/dev/null
+
+exit 0
